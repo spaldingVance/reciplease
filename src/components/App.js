@@ -45,12 +45,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className= "row">
-        <div className= "col-md-6 offset-md-3">
-          <div><SearchBar recipeSearch= {this.recipeSearch}/>
+      <div className="container">
+        <div className= "row">
+          <div className= "col-md-6 offset-md-3">
+            <SearchBar recipeSearch= {this.recipeSearch}/>
+          </div>
+        </div>
+        <div className= "row">
+          <div className= "col-md-6 offset-md-3">
+            <RecipesList recipes={this.state.recipes}/>
           </div>
         </div>
       </div>
+
     )
   }
 
