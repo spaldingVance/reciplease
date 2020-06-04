@@ -7,7 +7,7 @@ import SearchBar from './SearchBar'
 const Router = ({recipes, recipeSearch}) => (
   <Switch>
     <Route path='/recipes/:id' render={(routerProps) => (
-      <MainViewRecipe recipes={recipes}/>
+      <MainViewRecipe recipes={recipes} recipeId={parseInt(routerProps.match.params.id, 10)}/>
     )}/>
 
     <Route path='/' render={(routerProps) => (
