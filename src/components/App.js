@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import SearchBar from './searchBar';
+import RecipesList from './RecipesList'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
