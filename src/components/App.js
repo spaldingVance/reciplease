@@ -9,8 +9,12 @@ const API_KEY = 'b7eb15bcb7b94f27b87d3926aeee45ac';
 
 class App extends Component {
   constructor() {
-    super();
+    super()
+    this.state = {
+      recipes: null
+    }
 
+    this.recipeSearch = this.recipeSearch.bind(this);
 
   }
 
@@ -43,7 +47,7 @@ class App extends Component {
     return (
       <div className= "row">
         <div className= "col-md-6 offset-md-3">
-          <div><SearchBar onSearchTermChange = {this.recipeSearch}/>
+          <div><SearchBar recipeSearch= {this.recipeSearch}/>
           </div>
         </div>
       </div>

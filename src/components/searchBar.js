@@ -8,20 +8,20 @@ class SearchBar extends Component {
     this.state = { term: '' };
 
     this.onInputChange = this.onInputChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit} className="input-group">
+      <form className="input-group">
         <input
         className="form-control"
           value={this.state.term}
           onChange={this.onInputChange}
         />
         <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">
+          <button type="button" className="btn btn-secondary" onClick={this.handleClick}>
           Submit
       </button>
     </span>
@@ -29,16 +29,15 @@ class SearchBar extends Component {
     );
   }
 
-  onInputChange(event) {
-    this.setState({ term: event.target.value });
+  handleClick() {
+    this.props.recipeSearch(this.state.term);
+    this.setState({ term: ''});
   }
 
-  onFormSubmit(event) {
-  event.preventDefault();
-
-  this.props.onFormSubmit(this.state.term);
-  this.setState({ term: '' });
-}
+  onInputChange(event) {
+    console.log(event);
+    this.setState({ term: event.target.value });
+  }
 
 }
 
