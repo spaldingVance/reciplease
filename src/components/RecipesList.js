@@ -1,18 +1,24 @@
 import React from 'react';
-import RecipesListItem from './RecipesListItem';
+import { Link } from 'react-router-dom'
 
-class RecipesList extends React.Component {
-  constructor {
-    super();
+const image_url_start = "https://spoonacular.com/recipeImages/"
 
-    this.state = {
-      currentRecipe = null;
-    }
-  }
+const RecipesList = ({ recipes }) => (
 
-  return <ul className="col-md-4 list-group">
-
-  </ul>;
-};
+  <div className="recipes-container">
+    <h1>Recipes</h1>
+    <ol className="list-group">
+      {
+        recipes.map(recipe => (
+          <li className="list-group-item" key={recipe.id}>
+              <h3>{recipe.title}</h3>
+              <img width="200px" src={image_url_start + recipe.image}/>
+              <h5>Ready in {recipe.readyInMinutes} minutes</h5>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+)
 
 export default RecipesList;
