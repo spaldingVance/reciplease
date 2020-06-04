@@ -11,8 +11,8 @@ class SearchBar extends Component {
   render() {
     return (
       <div className= "input-group mb-3">
-        <div className="search-bar input-group-prepend">
-          <span className= "input-group-text">Search</span>
+        <div className="search-bar input-group-append">
+          <button className="btn btn-primary" type="button">Search</button>
         </div>
         <input className= "form-control" value={this.state.term}  onChange={event => this.onInputChange(event.target.value)}
         />

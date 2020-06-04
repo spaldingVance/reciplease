@@ -42,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <div className= "row">
-        <div className= "col-md-4 offset-md-4">
+        <div className= "col-md-6 offset-md-3">
           <div><SearchBar onSearchTermChange = {this.recipeSearch}/>
           </div>
         </div>
