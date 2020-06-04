@@ -2,10 +2,12 @@ import React, {
   Component
 } from 'react';
 import ReactDOM from 'react-dom';
-import SearchBar from './searchBar';
+import SearchBar from './SearchBar';
 import RecipesList from './RecipesList'
+import { Route } from 'react-router-dom'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Router from './Router'
 
 const API_KEY = 'b7eb15bcb7b94f27b87d3926aeee45ac';
 
@@ -96,34 +98,12 @@ class App extends Component {
   }
 
   render() {
-    return ( <
-      div className = "container" >
-      <
-      div className = "row" >
-      <
-      div className = "col-md-6 offset-md-3" >
-      <
-      SearchBar recipeSearch = {
-        this.recipeSearch
-      }
-      /> <
-      /div> <
-      /div> <
-      div className = "row" >
-      <
-      div className = "col-md-6 offset-md-3" >
-      <
-      RecipesList recipes = {
-        this.state.recipes
-      }
-      /> <
-      /div> <
-      /div> <
-      /div>
-
+    return (
+      <Route path='/' render={() => (
+        <Router recipes={this.state.recipes} recipeSearch={this.recipeSearch}/>
+      )}/>
     )
   }
-
 }
 
 export default App

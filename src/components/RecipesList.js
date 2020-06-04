@@ -11,9 +11,11 @@ const RecipesList = ({ recipes }) => (
       {
         recipes.map(recipe => (
           <li className="list-group-item" key={recipe.id}>
+            <Link to={`/recipes/${recipe.id}`}>
               <h3>{recipe.title}</h3>
               <img width="200px" src={image_url_start + recipe.image}/>
               <h5>Ready in {recipe.readyInMinutes} minutes</h5>
+            </Link>
           </li>
         ))
       }
