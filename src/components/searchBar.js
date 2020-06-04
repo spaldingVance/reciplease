@@ -6,24 +6,40 @@ class SearchBar extends Component {
     super(props);
 
     this.state = { term: '' };
+
+    this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
+
 
   render() {
     return (
-      <div className= "input-group mb-3">
-        <div className="search-bar input-group-append">
-          <button className="btn btn-primary" type="button">Search</button>
-        </div>
-        <input className= "form-control" value={this.state.term}  onChange={event => this.onInputChange(event.target.value)}
+      <form onSubmit={this.onFormSubmit} className="input-group">
+        <input
+        className="form-control"
+          value={this.state.term}
+          onChange={this.onInputChange}
         />
-      </div>
+        <span className="input-group-btn">
+          <button type="submit" className="btn btn-secondary">
+          Submit
+      </button>
+    </span>
+  </form>
     );
   }
 
-  onInputChange(term) {
-    this.setState({ term });
-    this.props.onSearchTermChange(term);
+  onInputChange(event) {
+    this.setState({ term: event.target.value });
   }
+
+  onFormSubmit(event) {
+  event.preventDefault();
+
+  this.props.onFormSubmit(this.state.term);
+  this.setState({ term: '' });
+}
+
 }
 
 export default SearchBar;
