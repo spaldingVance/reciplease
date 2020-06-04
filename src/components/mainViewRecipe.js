@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 
 import axios from 'axios';
+import SpeechListener from './SpeechListener'
 
 const API_KEY = "b7eb15bcb7b94f27b87d3926aeee45ac"
 
@@ -64,6 +65,7 @@ class MainViewRecipe extends Component {
             ))
           }
           </ol>
+          <SpeechListener steps={this.state.steps.map(item => item.step)}/>
         </div> :
         <h1>Loadin</h1>
     )
