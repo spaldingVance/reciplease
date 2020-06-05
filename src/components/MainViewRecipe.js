@@ -13,7 +13,8 @@ class MainViewRecipe extends Component {
 
     this.state = {
       steps: null,
-      isLoaded: false,
+      ingredientsLoaded: false,
+      stepsLoaded: false,
       current: null
     }
 
@@ -37,7 +38,7 @@ class MainViewRecipe extends Component {
         console.log(response.data[0].steps);
 
         this.setState({
-          isLoaded: true,
+          stepsLoaded: true,
           steps: this.parseSteps(response.data[0].steps)
         });
 
@@ -45,6 +46,35 @@ class MainViewRecipe extends Component {
       .catch(error => {
         console.error(error);
       });
+  }
+
+  getRecipeIngredients(recipeId) {
+    const url = `https://api.spoonacular.com/recipes/${recipeId}/ingredientWidget.json?apiKey=${API_KEY}`;
+
+    axios
+      .get(url, {
+        // params: params
+      })
+      .then(response => {
+        console.log('got response');
+        console.log(response);
+
+        this.setState({
+          ingredientsLoaded: true,
+          ingredients: this.parseIngredients(response.data.ingredients)
+        });
+
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+  }
+
+  parseIngredients(ingredients) {
+    return ingredients.map( ingredient => {
+      return `${ingredient.amount.us.value} ${ingredient.amount.us.unit} ${ingredient.name}`;
+    })
   }
 
   parseSteps(steps) {
@@ -57,16 +87,31 @@ class MainViewRecipe extends Component {
 
   componentDidMount() {
     this.getRecipeSteps(this.props.recipeId);
+    this.getRecipeIngredients(this.props.recipeId);
   }
 
   render() {
-    const { isLoaded, steps } = this.state;
+    const { ingredientsLoaded, stepsLoaded, steps } = this.state;
     return (
-        isLoaded ?
+        (ingredientsLoaded & stepsLoaded) ?
         <div>
           <div className="container">
             <div className="row">
               <div className="col-md-9 offset-md-2 display-pane">
+              <h2 className="mainView-subtitle">Ingredients</h2>
+              <ol className="list-group recipe container d-flex mb-3 p-3 rounded shadow">
+
+                {
+                  this.state.ingredients.map(ingredient => (
+                    <li className="list-group-item" id={ingredient.name} key={ingredient.name}>
+                      <h4>{ingredient}</h4>
+                    </li>
+                  ))
+                }
+
+              </ol>
+
+                <h2 className="mt-5 mainView-subtitle">Instructions</h2>
                 <ol className="list-group recipe container d-flex mb-3 p-3 rounded shadow">
                   {
                     this.state.steps.map(item => (

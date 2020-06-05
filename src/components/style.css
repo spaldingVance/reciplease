@@ -27,4 +27,7 @@ body {
 a:hover {
   color: none;
   text-decoration: none;
+
+.container {
+  text-align: center;
 }
