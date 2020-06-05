@@ -15,7 +15,7 @@ class SearchBar extends Component {
   render() {
     return (
       <form className="form d-inline shadow-sm">
-        <div className="input-group mt-3 mb-3 ">
+        <div className="input-group mb-3 ">
           <div className="input-group-prepend ">
             <div className="input-group-btn">
               <button type="button" className="btn btn-primary search-button shadow-sm" onClick={this.handleClick}>
@@ -23,7 +23,7 @@ class SearchBar extends Component {
                   </button>
                 </div>
               </div>
-              <input className="input-group form-control ml-sm-2 search-bar shadow-sm" value={this.state.term} onChange={this.onInputChange} />
+              <input className="input-group form-control ml-sm-2 search-bar shadow-sm" value={this.state.term} onChange={this.onInputChange} placeholder="find your recipe"/>
           </div>
         </form>
     );
