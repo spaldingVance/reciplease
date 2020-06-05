@@ -13,9 +13,16 @@ class MainViewRecipe extends Component {
 
     this.state = {
       steps: null,
-      isLoaded: false
+      isLoaded: false,
+      current: null
     }
 
+    this.setCurrentStep = this.setCurrentStep.bind(this)
+
+  }
+
+  setCurrentStep(newCurrent) {
+    this.setState( { current: newCurrent} )
   }
 
   getRecipeSteps(recipeId) {
@@ -73,7 +80,7 @@ class MainViewRecipe extends Component {
               </div>
             </div>
           </div>
-          <SpeechListener steps={this.state.steps.map(item => item.step)}/>
+          <SpeechListener setCurrentStep={this.setCurrentStep} steps={this.state.steps.map(item => item.step)}/>
         </div> :
         <h1>Loading ... </h1>
     )
