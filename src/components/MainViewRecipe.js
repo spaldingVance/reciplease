@@ -5,7 +5,7 @@ import React, {
 import axios from 'axios';
 import SpeechListener from './SpeechListener'
 
-const API_KEY = "8cac505050694dec906c3a34f9709279"
+const API_KEY = "60f93be48a35421c9e3831a72dfb4251"
 
 class MainViewRecipe extends Component {
   constructor(props) {
@@ -73,7 +73,21 @@ class MainViewRecipe extends Component {
 
   parseIngredients(ingredients) {
     return ingredients.map( ingredient => {
-      return `${ingredient.amount.us.value} ${ingredient.amount.us.unit} ${ingredient.name}`;
+      var unit;
+      if(ingredient.amount.us.value % 1 !== 0) {
+        if(Number(ingredient.amount.us.value.toFixed(1)) === Number(ingredient.amount.us.value.toFixed(2))) {
+          unit = ingredient.amount.us.value.toFixed(1);
+        } else {
+          unit = ingredient.amount.us.value.toFixed(2);
+        }
+      } else {
+        unit = ingredient.amount.us.value;
+      }
+      if(ingredient.amount.us.unit === 'c') {
+        return `${unit} cup(s) ${ingredient.name}`;
+      } else {
+        return `${unit} ${ingredient.amount.us.unit} ${ingredient.name}`;
+      }
     })
   }
 
@@ -122,17 +136,19 @@ class MainViewRecipe extends Component {
               <div className="col-md-8 display-pane instructions-col">
                 <ol className="list-group recipe-container container d-flex mb-3 p-3 rounded shadow">
                   <h2 className="mainView-subtitle">Instructions</h2>
-                  {
-                    this.state.steps.map(item => (
-                      (item.number === this.state.current + 1) ?
-                        <li className="list-group-item current-step" id={item.number} key={item.number}>
-                          <h3>{item.number}) {item.step}</h3>
-                        </li> :
-                        <li className="list-group-item" id={item.number} key={item.number}>
-                          <h3>{item.number}) {item.step}</h3>
-                        </li>
-                    ))
-                  }
+                    <div className="instructions-container">
+                      {
+                      this.state.steps.map(item => (
+                        (item.number === this.state.current + 1) ?
+                          <li className="list-group-item current-step" id={item.number} key={item.number}>
+                            <h3>{item.number}) {item.step}</h3>
+                          </li> :
+                          <li className="list-group-item" id={item.number} key={item.number}>
+                            <h3>{item.number}) {item.step}</h3>
+                          </li>
+                      ))
+                      }
+                  </div>
                 </ol>
               </div>
             </div>

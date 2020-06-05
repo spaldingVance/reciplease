@@ -1,14 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@515&family=Roboto+Slab:wght@400&display=swap');
+
 
 .header{
   padding-top: 2%;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', 'cursive';
   font-size: 65px;
   padding-bottom: 5%;
 }
 
 .mainView-subtitle {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', 'cursive';
   padding-bottom: 1%;
   color: #007bff;
+}
+
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+.instructions-container {
+  font-family: 'Roboto Slab', serif;
 }
