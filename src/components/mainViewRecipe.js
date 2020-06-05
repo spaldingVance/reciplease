@@ -13,9 +13,16 @@ class MainViewRecipe extends Component {
 
     this.state = {
       steps: null,
-      isLoaded: false
+      isLoaded: false,
+      current: null
     }
 
+    this.setCurrentStep = this.setCurrentStep.bind(this)
+
+  }
+
+  setCurrentStep(newCurrent) {
+    this.setState( { current: newCurrent} )
   }
 
   getRecipeSteps(recipeId) {
@@ -56,25 +63,26 @@ class MainViewRecipe extends Component {
     const { isLoaded, steps } = this.state;
     return (
         isLoaded ?
-        <div>
-          <h1>Main View Recipe</h1>
           <div className="container">
             <div className="row">
-              <div className="col-md-9 offset-md-3 display-pane">
+              <div className="col-md-9 offset-md-2 display-pane">
                 <ol className="list-group recipe container d-flex mb-3 p-3 rounded shadow">
                   {
                     this.state.steps.map(item => (
-                      <li className="list-group-item" id={item.number} key={item.number}>
-                        <h3>{item.number}) {item.step}</h3>
-                      </li>
+                      (item.number === this.state.current + 1) ?
+                        <li className="list-group-item current-step" id={item.number} key={item.number}>
+                          <h3>{item.number}) {item.step}</h3>
+                        </li> :
+                        <li className="list-group-item" id={item.number} key={item.number}>
+                          <h3>{item.number}) {item.step}</h3>
+                        </li>
                     ))
                   }
                 </ol>
               </div>
             </div>
           </div>
-          <SpeechListener steps={this.state.steps.map(item => item.step)}/>
-        </div> :
+          <SpeechListener setCurrentStep={this.setCurrentStep} steps={this.state.steps.map(item => item.step)}/> :
         <h1>Loading ... </h1>
     )
   }

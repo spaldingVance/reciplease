@@ -3,10 +3,14 @@ img {
 }
 
 body {
-  background-color: lemonchiffon
+  background-color: lemonchiffon;
 }
 
 .recipe {
   background-color: #f2f2f2;
   text-align: center
+}
+
+.current-step {
+  background-color: #99ddff;
 }

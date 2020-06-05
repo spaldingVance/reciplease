@@ -9,6 +9,7 @@ var converter = require('number-to-words');
 
 
 const SpeechListener = ({
+  setCurrentStep,
   steps,
   finalTranscript,
   transcript,
@@ -25,7 +26,7 @@ const SpeechListener = ({
 
   return (
     <div>
-      <VoiceRecognition steps={steps} transcript={finalTranscript} resetTranscript={resetTranscript} stopListening={stopListening} startListening={startListening} listening={listening}/>
+      <VoiceRecognition setCurrentStep={setCurrentStep} steps={steps} transcript={finalTranscript} resetTranscript={resetTranscript} stopListening={stopListening} startListening={startListening} listening={listening}/>
 
     </div>
   );
