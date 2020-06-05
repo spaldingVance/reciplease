@@ -1,6 +1,5 @@
 img {
-  width: 200px;
-
+  width: 75%;
 }
 
 body {
@@ -9,6 +8,7 @@ body {
 
 .recipe {
   background-color: #f2f2f2;
+  text-align: center
 }
 
 .current-step {

@@ -13,9 +13,11 @@ const RecipesList = ({ recipes }) => (
           <div className="list-group-item recipe container d-inline-flex flex-wrap mb-3 p-3 border rounded side-view shadow" key={recipe.id}>
 
             <Link to={`/recipes/${recipe.id}`}>
-              <img src={image_url_start + recipe.image} className="img-fluid img-thumbnail" alt="Responsive image"/>
+
               <h3>{recipe.title}</h3>
-              <h5>Ready in {recipe.readyInMinutes} minutes</h5>
+              <div className="image-scaling">
+              <img src={image_url_start + recipe.image} className="img-fluid img-thumbnail mb-2 mx-auto d-block" alt="Responsive image"/><h5>Ready in {recipe.readyInMinutes} minutes</h5>
+              </div>
             </Link>
           </div>
         ))
