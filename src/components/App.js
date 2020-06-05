@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Router from './Router'
 import './fonts.css';
 
-const API_KEY = '60f93be48a35421c9e3831a72dfb4251';
+const API_KEY = '123e1e9edb7d423995f22b9e5bd74a75';
 
 
 class App extends Component {

@@ -5,7 +5,7 @@ import React, {
 import axios from 'axios';
 import SpeechListener from './SpeechListener'
 
-const API_KEY = "60f93be48a35421c9e3831a72dfb4251"
+const API_KEY = "123e1e9edb7d423995f22b9e5bd74a75"
 
 class MainViewRecipe extends Component {
   constructor(props) {
@@ -141,10 +141,10 @@ class MainViewRecipe extends Component {
                       this.state.steps.map(item => (
                         (item.number === this.state.current + 1) ?
                           <li className="list-group-item current-step" id={item.number} key={item.number}>
-                            <h3>{item.number}) {item.step}</h3>
+                            <h3><b>{item.number})</b> {item.step}</h3>
                           </li> :
                           <li className="list-group-item" id={item.number} key={item.number}>
-                            <h3>{item.number}) {item.step}</h3>
+                            <h3><b>{item.number})</b> {item.step}</h3>
                           </li>
                       ))
                       }
