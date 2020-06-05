@@ -81,6 +81,13 @@ class MainViewRecipe extends Component {
     return steps.map(step=> {
       console.log(step);
       step.step = step.step.split('.').join('. ');
+      step.step = step.step.split(' ').map(word => {
+        console.log(word);
+        if(word === 'F.') {
+          console.log("FOUND F");
+          return "Farenheit.";
+        } else return word;
+      }).join(' ');
       return step;
     })
   }

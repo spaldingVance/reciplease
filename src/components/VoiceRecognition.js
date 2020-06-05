@@ -99,7 +99,6 @@ class VoiceRecognition extends React.Component {
       ref = {
         element => speechButton = element
       }
-      voice="Google UK English Female"
       rate="0.85"
       /> <
       /div>
