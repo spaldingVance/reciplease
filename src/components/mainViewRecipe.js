@@ -63,7 +63,6 @@ class MainViewRecipe extends Component {
     const { isLoaded, steps } = this.state;
     return (
         isLoaded ?
-        <div>
           <div className="container">
             <div className="row">
               <div className="col-md-9 offset-md-2 display-pane">
@@ -83,8 +82,7 @@ class MainViewRecipe extends Component {
               </div>
             </div>
           </div>
-          <SpeechListener setCurrentStep={this.setCurrentStep} steps={this.state.steps.map(item => item.step)}/>
-        </div> :
+          <SpeechListener setCurrentStep={this.setCurrentStep} steps={this.state.steps.map(item => item.step)}/> :
         <h1>Loading ... </h1>
     )
   }
