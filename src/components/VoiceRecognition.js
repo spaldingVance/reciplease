@@ -22,6 +22,11 @@ class VoiceRecognition extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.props.stopListening();
+    this.props.startListening();
+  }
+
   componentDidUpdate() {
     let stepObj = {};
 
