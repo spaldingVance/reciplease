@@ -8,12 +8,17 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "lodash": "^4.17.15",
+    "number-to-words": "^1.2.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-speech": "^1.0.2",
-    "react-speech-recognition": "^2.0.4"
+    "react-speech-recognition": "^2.0.4",
+    "redux": "^4.0.5",
+    "redux-promise": "^0.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
