@@ -68,7 +68,7 @@ class VoiceRecognition extends React.Component {
         this.setState({
           current: nextStepIndex
         }, () => speechButton.play());
-        this.props.setCurrentStep(newStepIndex);
+        this.props.setCurrentStep(nextStepIndex);
       } else if (parsed.includes('previous step')) {
         this.props.resetTranscript();
         this.props.stopListening();
