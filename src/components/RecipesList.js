@@ -10,7 +10,7 @@ const RecipesList = ({ recipes }) => (
     <ol className="list-group">
       {
         recipes.map(recipe => (
-          <li className="list-group-item" key={recipe.id}>
+          <li className="list-group-item recipe" key={recipe.id}>
             <Link to={`/recipes/${recipe.id}`}>
               <h3>{recipe.title}</h3>
               <img width="200px" src={image_url_start + recipe.image}/>

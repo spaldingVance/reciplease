@@ -1,5 +1,12 @@
+.img-thumbnail {
+  width: 80px;
+  height: 60px;
+}
 
+body {
+  background-color: lemonchiffon
+}
 
-
-
-default export style
+.recipe {
+  background-color: #f2f2f2
+}

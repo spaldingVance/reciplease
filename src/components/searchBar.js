@@ -18,7 +18,7 @@ class SearchBar extends Component {
         <div className="input-group mt-3 mb-3 ">
           <div className="input-group-prepend ">
             <div className="input-group-btn">
-              <button type="button" className="btn btn-outline-primary search-button shadow-sm" onClick={this.handleClick}>
+              <button type="button" className="btn btn-primary search-button shadow-sm" onClick={this.handleClick}>
                 Search
                   </button>
                 </div>
