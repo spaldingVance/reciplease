@@ -8,6 +8,7 @@ import { Route } from 'react-router-dom'
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Router from './Router'
+import './fonts.css';
 
 const API_KEY = 'b7eb15bcb7b94f27b87d3926aeee45ac';
 

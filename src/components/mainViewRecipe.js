@@ -56,18 +56,24 @@ class MainViewRecipe extends Component {
         isLoaded ?
         <div>
           <h1>Main View Recipe</h1>
-          <ol className="list-group">
-          {
-            this.state.steps.map(item => (
-              <li className="list-group-item">
-                <h2>{item.number}) {item.step}</h2>
-              </li>
-            ))
-          }
-          </ol>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-9 offset-md-3 display-pane">
+                <ol className="list-group recipe container d-flex mb-3 p-3 rounded shadow">
+                  {
+                    this.state.steps.map(item => (
+                      <li className="list-group-item">
+                        <h3>{item.number}) {item.step}</h3>
+                      </li>
+                    ))
+                  }
+                </ol>
+              </div>
+            </div>
+          </div>
           <SpeechListener steps={this.state.steps.map(item => item.step)}/>
         </div> :
-        <h1>Loadin</h1>
+        <h1>Loading ... </h1>
     )
   }
 }
