@@ -5,7 +5,7 @@ import React, {
 import axios from 'axios';
 import SpeechListener from './SpeechListener'
 
-const API_KEY = "b7eb15bcb7b94f27b87d3926aeee45ac"
+const API_KEY = "8cac505050694dec906c3a34f9709279"
 
 class MainViewRecipe extends Component {
   constructor(props) {
