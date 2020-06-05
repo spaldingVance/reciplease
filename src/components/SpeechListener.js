@@ -26,7 +26,7 @@ const SpeechListener = ({
 
   return (
     <div>
-      <VoiceRecognition setCurrentStep={this.props.setCurrentStep} steps={steps} transcript={finalTranscript} resetTranscript={resetTranscript} stopListening={stopListening} startListening={startListening} listening={listening}/>
+      <VoiceRecognition setCurrentStep={setCurrentStep} steps={steps} transcript={finalTranscript} resetTranscript={resetTranscript} stopListening={stopListening} startListening={startListening} listening={listening}/>
 
     </div>
   );
