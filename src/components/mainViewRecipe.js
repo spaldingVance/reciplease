@@ -63,7 +63,7 @@ class MainViewRecipe extends Component {
                   {
                     this.state.steps.map(item => (
                       <li className="list-group-item">
-                        <h2>{item.number}) {item.step}</h2>
+                        <h3>{item.number}) {item.step}</h3>
                       </li>
                     ))
                   }
