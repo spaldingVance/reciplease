@@ -11,9 +11,9 @@ const Router = ({recipes, recipeSearch}) => (
     )}/>
 
     <Route path='/' render={(routerProps) => (
-      <div className = "container" >
-        <div className = "row" >
-          <div className = "col-md-6 offset-md-3" >
+      <div className = "container search-bar" >
+        <div className = "row my-3" >
+          <div className = "col-md-6 offset-md-3 " >
             <SearchBar recipeSearch = {
               recipeSearch
             }/>
