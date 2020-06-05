@@ -19,3 +19,12 @@ body {
 .list-group {
   text-align: center;
 }
+
+.header-link {
+  text-decoration: none
+}
+
+a:hover {
+  color: none;
+  text-decoration: none;
+}
