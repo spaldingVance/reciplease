@@ -6,3 +6,8 @@
   font-family: 'Pacifico', cursive;
   font-size: 65px;
 }
+
+.mainView-subtitle {
+  font-family: 'Pacifico', cursive;
+  padding-bottom: 1%;
+}
