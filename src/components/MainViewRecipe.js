@@ -95,11 +95,11 @@ class MainViewRecipe extends Component {
     return (
         (ingredientsLoaded & stepsLoaded) ?
         <div>
-          <div className="container">
-            <div className="row">
-              <div className="col-md-9 offset-md-2 display-pane">
+          <div >
+            <div className="row main-view-row mt-3 ingredients-col">
+              <div className="col-md-3 display-pane">
+              <ol className="list-group recipe-container container d-flex mb-3 p-3 rounded shadow">
               <h2 className="mainView-subtitle">Ingredients</h2>
-              <ol className="list-group recipe container d-flex mb-3 p-3 rounded shadow">
 
                 {
                   this.state.ingredients.map(ingredient => (
@@ -110,9 +110,11 @@ class MainViewRecipe extends Component {
                 }
 
               </ol>
+              </div>
 
-                <h2 className="mt-5 mainView-subtitle">Instructions</h2>
-                <ol className="list-group recipe container d-flex mb-3 p-3 rounded shadow">
+              <div className="col-md-8 display-pane instructions-col">
+                <ol className="list-group recipe-container container d-flex mb-3 p-3 rounded shadow">
+                  <h2 className="mainView-subtitle">Instructions</h2>
                   {
                     this.state.steps.map(item => (
                       (item.number === this.state.current + 1) ?

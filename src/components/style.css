@@ -7,9 +7,9 @@ body {
   background-color: lemonchiffon;
 }
 
-.recipe {
+.recipe-container {
   background-color: #f2f2f2;
-  text-align: center;
+  float: left;
 }
 
 .current-step {
@@ -30,5 +30,31 @@ a:hover {
 }
 
 .container {
+
+}
+
+.display-pane {
+  display: inline-block;
   text-align: center;
+}
+
+.rs-play {
+  display: none;
+}
+
+.header-col {
+  text-align: center;
+}
+
+.ingredients-col {
+  text-align: center;
+  padding-left: 3%;
+}
+
+.header-row {
+  padding-left: 3%;
+}
+
+.instructions-col {
+  margin-left: 7%;
 }

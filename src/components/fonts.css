@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 .header{
-  padding-left: 4%;
   padding-top: 2%;
   font-family: 'Pacifico', cursive;
   font-size: 65px;
-  padding-bottom: 2%;
+  padding-bottom: 5%;
 }
 
 .mainView-subtitle {
   font-family: 'Pacifico', cursive;
   padding-bottom: 1%;
+  color: #007bff;
 }
