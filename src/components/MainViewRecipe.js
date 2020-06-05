@@ -99,7 +99,7 @@ class MainViewRecipe extends Component {
         console.log(word);
         if(word === 'F.') {
           console.log("FOUND F");
-          return "Farenheit.";
+          return "Fahrenheit.";
         } else return word;
       }).join(' ');
       return step;
