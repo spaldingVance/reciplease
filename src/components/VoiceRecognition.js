@@ -17,7 +17,7 @@ class VoiceRecognition extends React.Component {
     super(props)
     this.state = {
       steps: this.props.steps,
-      current: null,
+      current: 0,
       speechButton: null
     }
   }
@@ -67,14 +67,18 @@ class VoiceRecognition extends React.Component {
         this.setState({
           current: nextStepIndex
         }, () => speechButton.play());
-      }
-      if (parsed.includes('previous step')) {
+      } else if (parsed.includes('previous step')) {
         this.props.resetTranscript();
         this.props.stopListening();
         var previousStepIndex = this.state.current - 1;
         this.setState({
           current: previousStepIndex
         }, () => speechButton.play());
+      } else if (parsed.includes('current step')) {
+        this.props.resetTranscript();
+        this.props.stopListening();
+        var previousStepIndex = this.state.current - 1;
+        speechButton.play();
       }
     }
     if (!this.props.listening) {

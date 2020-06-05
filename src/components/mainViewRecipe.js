@@ -21,12 +21,6 @@ class MainViewRecipe extends Component {
   getRecipeSteps(recipeId) {
     const url = `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?apiKey=${API_KEY}`;
 
-    // const params = {
-    //   apiKey: API_KEY,
-    //   recipeId: recipeId
-    //
-    // };
-
     axios
       .get(url, {
         // params: params
@@ -37,13 +31,21 @@ class MainViewRecipe extends Component {
 
         this.setState({
           isLoaded: true,
-          steps: response.data[0].steps
+          steps: this.parseSteps(response.data[0].steps)
         });
 
       })
       .catch(error => {
         console.error(error);
       });
+  }
+
+  parseSteps(steps) {
+    return steps.map(step=> {
+      console.log(step);
+      step.step = step.step.split('.').join('. ');
+      return step;
+    })
   }
 
   componentDidMount() {
@@ -62,7 +64,7 @@ class MainViewRecipe extends Component {
                 <ol className="list-group recipe container d-flex mb-3 p-3 rounded shadow">
                   {
                     this.state.steps.map(item => (
-                      <li className="list-group-item">
+                      <li className="list-group-item" id={item.number} key={item.number}>
                         <h3>{item.number}) {item.step}</h3>
                       </li>
                     ))
